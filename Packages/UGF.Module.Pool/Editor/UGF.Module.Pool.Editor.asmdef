@@ -1,0 +1,18 @@
+{
+    "name": "UGF.Module.Pool.Editor",
+    "rootNamespace": "UGF.Module.Pool.Editor",
+    "references": [
+        "GUID:e346a1e9cf67a7242bd2bc60d734adda"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
