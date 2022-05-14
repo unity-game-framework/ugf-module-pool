@@ -6,7 +6,7 @@ namespace UGF.Module.Pool.Runtime
 {
     public class PoolModuleDescription : ApplicationModuleDescription
     {
-        public bool UnloadOnUninitialize { get; }
+        public bool UnloadOnUninitialize { get; set; }
         public Dictionary<string, IPoolDescription> Pools { get; } = new Dictionary<string, IPoolDescription>();
         public Dictionary<string, IBuilder<IPoolLoader>> Loaders { get; } = new Dictionary<string, IBuilder<IPoolLoader>>();
         public List<string> Preload { get; } = new List<string>();
