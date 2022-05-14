@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "com.ugf.application": "8.1.0",
-    "com.ugf.pool": "2.0.0-preview.2"
+    "com.ugf.pool": "2.0.0-preview.2",
+    "com.ugf.module.assets": "4.0.0"
   }
 }
