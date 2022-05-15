@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UGF.Application.Runtime;
 using UGF.EditorTools.Runtime.IMGUI.AssetReferences;
+using UGF.EditorTools.Runtime.IMGUI.Attributes;
 using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime
@@ -11,7 +12,9 @@ namespace UGF.Module.Pool.Runtime
         [SerializeField] private bool m_unloadOnUninitialize = true;
         [SerializeField] private List<AssetReference<PoolDescriptionAsset>> m_pools = new List<AssetReference<PoolDescriptionAsset>>();
         [SerializeField] private List<AssetReference<PoolLoaderAsset>> m_loaders = new List<AssetReference<PoolLoaderAsset>>();
+        [AssetGuid(typeof(PoolDescriptionAsset))]
         [SerializeField] private List<string> m_preload = new List<string>();
+        [AssetGuid(typeof(PoolDescriptionAsset))]
         [SerializeField] private List<string> m_preloadAsync = new List<string>();
 
         public bool UnloadOnUninitialize { get { return m_unloadOnUninitialize; } set { m_unloadOnUninitialize = value; } }
