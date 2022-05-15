@@ -121,6 +121,8 @@ namespace UGF.Module.Pool.Runtime
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
 
+            collection.DisableAll();
+
             loader.Unload(collection, description, Context);
 
             Pools.Remove(id);
@@ -135,6 +137,8 @@ namespace UGF.Module.Pool.Runtime
             IPoolCollection collection = Pools.Get(id);
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
+
+            collection.DisableAll();
 
             await loader.UnloadAsync(collection, description, Context);
 

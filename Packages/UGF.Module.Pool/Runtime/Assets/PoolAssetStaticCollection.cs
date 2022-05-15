@@ -12,5 +12,21 @@ namespace UGF.Module.Pool.Runtime.Assets
         {
             Asset = asset ? asset : throw new ArgumentNullException(nameof(asset));
         }
+
+        public void BuildAll(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Add(Object.Instantiate(Asset));
+            }
+        }
+
+        public void DestroyAll()
+        {
+            while (Count > 0)
+            {
+                Object.Destroy(GetAny());
+            }
+        }
     }
 }

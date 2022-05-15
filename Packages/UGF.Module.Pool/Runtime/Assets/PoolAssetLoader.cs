@@ -19,10 +19,7 @@ namespace UGF.Module.Pool.Runtime.Assets
 
             TCollection collection = OnCreateCollection(asset, description, context);
 
-            for (int i = 0; i < description.Count; i++)
-            {
-                collection.Add(Object.Instantiate(collection.Asset));
-            }
+            collection.BuildAll(description.Count);
 
             return collection;
         }
@@ -35,10 +32,7 @@ namespace UGF.Module.Pool.Runtime.Assets
 
             TCollection collection = OnCreateCollection(asset, description, context);
 
-            for (int i = 0; i < description.Count; i++)
-            {
-                collection.Add(Object.Instantiate(collection.Asset));
-            }
+            collection.BuildAll(description.Count);
 
             return collection;
         }
@@ -47,12 +41,16 @@ namespace UGF.Module.Pool.Runtime.Assets
         {
             var assetsModule = context.Get<IApplication>().GetModule<IAssetModule>();
 
+            collection.DestroyAll();
+
             assetsModule.Unload(description.AssetId, collection.Asset);
         }
 
         protected override async Task OnUnloadAsync(TCollection collection, TDescription description, IContext context)
         {
             var assetsModule = context.Get<IApplication>().GetModule<IAssetModule>();
+
+            collection.DestroyAll();
 
             await assetsModule.UnloadAsync(description.AssetId, collection.Asset);
         }
