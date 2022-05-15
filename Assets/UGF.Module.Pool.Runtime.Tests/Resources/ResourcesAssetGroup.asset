@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e8b28303b9482aa9ed0a381fe0a110, type: 3}
   m_Name: ResourcesAssetGroup
   m_EditorClassIdentifier: 
-  m_loader: 
+  m_loader: 81b68e66ce804dd46b122d7e4846cf46
   m_assets:
   - m_id: 1dae321a7aa641540892895bf2227e77
     m_address: Assets/GameObject
