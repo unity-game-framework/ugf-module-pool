@@ -6,8 +6,5 @@ namespace UGF.Module.Pool.Runtime.Assets
     public interface IPoolAssetCollection<TAsset> : IPoolCollection<TAsset> where TAsset : Object
     {
         TAsset Asset { get; }
-
-        void BuildAll(int count);
-        void DestroyAll();
     }
 }
