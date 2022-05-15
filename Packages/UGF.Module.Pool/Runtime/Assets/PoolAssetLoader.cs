@@ -18,7 +18,14 @@ namespace UGF.Module.Pool.Runtime.Assets
 
             var asset = assetsModule.Load<TAsset>(description.AssetId);
 
-            return OnCreateCollection(asset, description, context);
+            TCollection collection = OnCreateCollection(asset, description, context);
+
+            for (int i = 0; i < description.Count; i++)
+            {
+                collection.Add(Object.Instantiate(asset));
+            }
+
+            return collection;
         }
 
         protected override async Task<TCollection> OnLoadAsync(TDescription description, IContext context)
@@ -27,7 +34,14 @@ namespace UGF.Module.Pool.Runtime.Assets
 
             var asset = await assetsModule.LoadAsync<TAsset>(description.AssetId);
 
-            return OnCreateCollection(asset, description, context);
+            TCollection collection = OnCreateCollection(asset, description, context);
+
+            for (int i = 0; i < description.Count; i++)
+            {
+                collection.Add(Object.Instantiate(asset));
+            }
+
+            return collection;
         }
 
         protected override void OnUnload(TCollection collection, TDescription description, IContext context)
