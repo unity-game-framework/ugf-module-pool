@@ -13,13 +13,6 @@ MonoBehaviour:
   m_Name: PoolModule1
   m_EditorClassIdentifier: 
   m_unloadOnUninitialize: 1
-  m_pools:
-  - m_guid: 32b03190153e05a49b3818166ea7780a
-    m_asset: {fileID: 11400000, guid: 32b03190153e05a49b3818166ea7780a, type: 2}
-  - m_guid: f49252ed0e77b454b9f998dd2061f950
-    m_asset: {fileID: 11400000, guid: f49252ed0e77b454b9f998dd2061f950, type: 2}
-  - m_guid: 363b6ebfa665d4545a475d843ec95595
-    m_asset: {fileID: 11400000, guid: 363b6ebfa665d4545a475d843ec95595, type: 2}
   m_loaders:
   - m_guid: f5842681208f8da4d903f8dc422e49cb
     m_asset: {fileID: 11400000, guid: f5842681208f8da4d903f8dc422e49cb, type: 2}
@@ -27,6 +20,18 @@ MonoBehaviour:
     m_asset: {fileID: 11400000, guid: d1f8426911bd0ea40b3f7b1ac5e2e746, type: 2}
   - m_guid: 4cf1cabe192813746863dfdc7c79f5be
     m_asset: {fileID: 11400000, guid: 4cf1cabe192813746863dfdc7c79f5be, type: 2}
+  - m_guid: f10d8d9a79247ba4cbb50e54be6764c8
+    m_asset: {fileID: 11400000, guid: f10d8d9a79247ba4cbb50e54be6764c8, type: 2}
+  m_pools:
+  - m_guid: 32b03190153e05a49b3818166ea7780a
+    m_asset: {fileID: 11400000, guid: 32b03190153e05a49b3818166ea7780a, type: 2}
+  - m_guid: f49252ed0e77b454b9f998dd2061f950
+    m_asset: {fileID: 11400000, guid: f49252ed0e77b454b9f998dd2061f950, type: 2}
+  - m_guid: 363b6ebfa665d4545a475d843ec95595
+    m_asset: {fileID: 11400000, guid: 363b6ebfa665d4545a475d843ec95595, type: 2}
+  - m_guid: 86bf84a06dccfa74aa43d45a44f7f798
+    m_asset: {fileID: 11400000, guid: 86bf84a06dccfa74aa43d45a44f7f798, type: 2}
   m_preload: []
   m_preloadAsync:
   - f49252ed0e77b454b9f998dd2061f950
+  - 86bf84a06dccfa74aa43d45a44f7f798

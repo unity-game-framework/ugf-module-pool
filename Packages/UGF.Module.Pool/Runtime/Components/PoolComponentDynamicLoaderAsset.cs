@@ -1,4 +1,5 @@
-﻿using UGF.Pool.Runtime.Unity;
+﻿using UGF.Module.Pool.Runtime.Assets;
+using UGF.Pool.Runtime.Unity;
 using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Components
@@ -8,7 +9,7 @@ namespace UGF.Module.Pool.Runtime.Components
     {
         protected override IPoolLoader OnBuild()
         {
-            return new PoolComponentDynamicLoader<PoolComponent>();
+            return new PoolAssetDynamicLoader<PoolComponent>();
         }
     }
 }

@@ -20,3 +20,5 @@ MonoBehaviour:
     m_address: Assets/Material
   - m_id: 7123c40105e720c4b8e5547995edd7a9
     m_address: Assets/ScriptableObject
+  - m_id: b29baf718a176264fb1d077df8ed9543
+    m_address: Assets/GameObject1

@@ -10,19 +10,19 @@ namespace UGF.Module.Pool.Editor
     internal class PoolModuleAssetEditor : UnityEditor.Editor
     {
         private SerializedProperty m_propertyUnloadOnUninitialize;
-        private AssetReferenceListDrawer m_listPools;
-        private ReorderableListSelectionDrawerByPath m_listPoolSelection;
         private AssetReferenceListDrawer m_listLoaders;
         private ReorderableListSelectionDrawerByPath m_listLoadersSelection;
+        private AssetReferenceListDrawer m_listPools;
+        private ReorderableListSelectionDrawerByPath m_listPoolSelection;
         private ReorderableListDrawer m_listPreload;
         private ReorderableListDrawer m_listPreloadAsync;
 
         private void OnEnable()
         {
             m_propertyUnloadOnUninitialize = serializedObject.FindProperty("m_unloadOnUninitialize");
-            m_listPools = new AssetReferenceListDrawer(serializedObject.FindProperty("m_pools"));
+            m_listLoaders = new AssetReferenceListDrawer(serializedObject.FindProperty("m_loaders"));
 
-            m_listPoolSelection = new ReorderableListSelectionDrawerByPath(m_listPools, "m_asset")
+            m_listLoadersSelection = new ReorderableListSelectionDrawerByPath(m_listLoaders, "m_asset")
             {
                 Drawer =
                 {
@@ -30,9 +30,9 @@ namespace UGF.Module.Pool.Editor
                 }
             };
 
-            m_listLoaders = new AssetReferenceListDrawer(serializedObject.FindProperty("m_loaders"));
+            m_listPools = new AssetReferenceListDrawer(serializedObject.FindProperty("m_pools"));
 
-            m_listLoadersSelection = new ReorderableListSelectionDrawerByPath(m_listLoaders, "m_asset")
+            m_listPoolSelection = new ReorderableListSelectionDrawerByPath(m_listPools, "m_asset")
             {
                 Drawer =
                 {
@@ -53,10 +53,10 @@ namespace UGF.Module.Pool.Editor
 
         private void OnDisable()
         {
-            m_listPools.Disable();
-            m_listPoolSelection.Disable();
             m_listLoaders.Disable();
             m_listLoadersSelection.Disable();
+            m_listPools.Disable();
+            m_listPoolSelection.Disable();
             m_listPreload.Disable();
             m_listPreloadAsync.Disable();
         }
@@ -69,13 +69,13 @@ namespace UGF.Module.Pool.Editor
 
                 EditorGUILayout.PropertyField(m_propertyUnloadOnUninitialize);
 
-                m_listPools.DrawGUILayout();
                 m_listLoaders.DrawGUILayout();
+                m_listPools.DrawGUILayout();
                 m_listPreload.DrawGUILayout();
                 m_listPreloadAsync.DrawGUILayout();
 
-                m_listPoolSelection.DrawGUILayout();
                 m_listLoadersSelection.DrawGUILayout();
+                m_listPoolSelection.DrawGUILayout();
             }
         }
     }

@@ -12,8 +12,8 @@ namespace UGF.Module.Pool.Runtime
 {
     public class PoolModule : ApplicationModule<PoolModuleDescription>, IApplicationModuleAsync
     {
-        public IProvider<string, IPoolCollection> Pools { get; } = new Provider<string, IPoolCollection>();
         public IProvider<string, IPoolLoader> Loaders { get; } = new Provider<string, IPoolLoader>();
+        public IProvider<string, IPoolCollection> Pools { get; } = new Provider<string, IPoolCollection>();
         public IContext Context { get; }
 
         public PoolModule(PoolModuleDescription description, IApplication application) : base(description, application)
