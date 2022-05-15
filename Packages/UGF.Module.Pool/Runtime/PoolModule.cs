@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UGF.Application.Runtime;
 using UGF.Builder.Runtime;
+using UGF.Logs.Runtime;
 using UGF.Pool.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
 using UGF.RuntimeTools.Runtime.Providers;
@@ -33,10 +34,22 @@ namespace UGF.Module.Pool.Runtime
             {
                 Load(id);
             }
+
+            Log.Debug("Pool Module initialized", new
+            {
+                pools = Description.Pools.Count,
+                loaders = Description.Loaders.Count,
+                preload = Description.Preload.Count
+            });
         }
 
         public async Task InitializeAsync()
         {
+            Log.Debug("Pool Module initialize async", new
+            {
+                preloadAsync = Description.PreloadAsync.Count
+            });
+
             foreach (string id in Description.PreloadAsync)
             {
                 await LoadAsync(id);
@@ -46,6 +59,12 @@ namespace UGF.Module.Pool.Runtime
         protected override void OnUninitialize()
         {
             base.OnUninitialize();
+
+            Log.Debug("Pool Module uninitialize", new
+            {
+                pools = Pools.Entries.Count,
+                loaders = Loaders.Entries.Count
+            });
 
             while (Pools.Entries.Count > 0)
             {
