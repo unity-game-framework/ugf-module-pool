@@ -28,4 +28,5 @@ MonoBehaviour:
   - m_guid: 4cf1cabe192813746863dfdc7c79f5be
     m_asset: {fileID: 11400000, guid: 4cf1cabe192813746863dfdc7c79f5be, type: 2}
   m_preload: []
-  m_preloadAsync: []
+  m_preloadAsync:
+  - 363b6ebfa665d4545a475d843ec95595
