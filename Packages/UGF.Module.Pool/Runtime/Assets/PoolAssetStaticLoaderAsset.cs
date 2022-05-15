@@ -7,7 +7,7 @@ namespace UGF.Module.Pool.Runtime.Assets
     {
         protected override IPoolLoader OnBuild()
         {
-            return new PoolAssetStaticLoader<Object, PoolAssetDescription>();
+            return new PoolAssetStaticLoader<Object>();
         }
     }
 }

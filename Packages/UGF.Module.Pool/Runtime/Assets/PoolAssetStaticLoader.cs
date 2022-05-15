@@ -3,18 +3,11 @@ using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Assets
 {
-    public class PoolAssetStaticLoader<TAsset, TDescription> : PoolAssetLoader<TAsset, PoolAssetCollectionStatic<TAsset>, TDescription>
-        where TAsset : Object
-        where TDescription : PoolAssetDescription
+    public class PoolAssetStaticLoader<TAsset> : PoolAssetLoader<TAsset, PoolAssetStaticCollection<TAsset>, PoolAssetDescription> where TAsset : Object
     {
-        protected override PoolAssetCollectionStatic<TAsset> OnCreateCollection(TAsset asset, TDescription description, IContext context)
+        protected override PoolAssetStaticCollection<TAsset> OnCreateCollection(TAsset asset, PoolAssetDescription description, IContext context)
         {
-            return new PoolAssetCollectionStatic<TAsset>(asset, description.Capacity);
-        }
-
-        protected override TAsset OnGetAsset(PoolAssetCollectionStatic<TAsset> collection, TDescription description, IContext context)
-        {
-            return collection.Asset;
+            return new PoolAssetStaticCollection<TAsset>(asset, description.Capacity);
         }
     }
 }

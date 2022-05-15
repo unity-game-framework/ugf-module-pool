@@ -1,16 +1,13 @@
-﻿using UGF.Pool.Runtime.Unity;
-using UGF.RuntimeTools.Runtime.Contexts;
+﻿using UGF.RuntimeTools.Runtime.Contexts;
 using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Assets
 {
-    public class PoolAssetDynamicLoader<TAsset, TDescription> : PoolAssetLoader<TAsset, PoolCollectionDynamicObject<TAsset>, TDescription>
-        where TAsset : Object
-        where TDescription : PoolAssetDynamicDescription
+    public class PoolAssetDynamicLoader<TAsset> : PoolAssetLoader<TAsset, PoolAssetDynamicCollection<TAsset>, PoolAssetDynamicDescription> where TAsset : Object
     {
-        protected override PoolCollectionDynamicObject<TAsset> OnCreateCollection(TAsset asset, TDescription description, IContext context)
+        protected override PoolAssetDynamicCollection<TAsset> OnCreateCollection(TAsset asset, PoolAssetDynamicDescription description, IContext context)
         {
-            var collection = new PoolCollectionDynamicObject<TAsset>(asset, context, description.Capacity)
+            return new PoolAssetDynamicCollection<TAsset>(asset, context, description.Capacity)
             {
                 DefaultCount = description.Count,
                 ExpandAuto = description.ExpandEnable,
@@ -20,13 +17,6 @@ namespace UGF.Module.Pool.Runtime.Assets
                 TrimCount = description.TrimCount,
                 TrimThreshold = description.TrimThreshold
             };
-
-            return collection;
-        }
-
-        protected override TAsset OnGetAsset(PoolCollectionDynamicObject<TAsset> collection, TDescription description, IContext context)
-        {
-            return collection.Source;
         }
     }
 }
