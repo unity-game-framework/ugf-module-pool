@@ -18,7 +18,7 @@ namespace UGF.Module.Pool.Runtime.Assets
 
             var asset = assetsModule.Load<TAsset>(description.AssetId);
 
-            TCollection collection = OnCreateCollection(asset, description, context);
+            TCollection collection = OnCollectionCreate(asset, description, context);
 
             OnCollectionBuild(collection, description, context);
 
@@ -31,7 +31,7 @@ namespace UGF.Module.Pool.Runtime.Assets
 
             var asset = await assetsModule.LoadAsync<TAsset>(description.AssetId);
 
-            TCollection collection = OnCreateCollection(asset, description, context);
+            TCollection collection = OnCollectionCreate(asset, description, context);
 
             OnCollectionBuild(collection, description, context);
 
@@ -56,7 +56,7 @@ namespace UGF.Module.Pool.Runtime.Assets
             await assetsModule.UnloadAsync(description.AssetId, collection.Asset);
         }
 
-        protected abstract TCollection OnCreateCollection(TAsset asset, TDescription description, IContext context);
+        protected abstract TCollection OnCollectionCreate(TAsset asset, TDescription description, IContext context);
 
         protected virtual void OnCollectionBuild(TCollection collection, TDescription description, IContext context)
         {
