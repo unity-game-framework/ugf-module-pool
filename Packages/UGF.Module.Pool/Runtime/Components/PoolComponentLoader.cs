@@ -5,9 +5,9 @@ using UGF.Module.Pool.Runtime.Assets;
 using UGF.RuntimeTools.Runtime.Contexts;
 using UnityEngine;
 
-namespace UGF.Module.Pool.Runtime.GameObjects
+namespace UGF.Module.Pool.Runtime.Components
 {
-    public abstract class PoolGameObjectLoader<TComponent, TCollection, TDescription> : PoolAssetLoader<TComponent, TCollection, TDescription>
+    public abstract class PoolComponentLoader<TComponent, TCollection, TDescription> : PoolAssetLoader<TComponent, TCollection, TDescription>
         where TComponent : Component
         where TCollection : class, IPoolAssetCollection<TComponent>
         where TDescription : PoolAssetDescription

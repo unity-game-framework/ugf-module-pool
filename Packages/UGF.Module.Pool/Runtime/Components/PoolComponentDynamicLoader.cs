@@ -2,13 +2,13 @@
 using UGF.RuntimeTools.Runtime.Contexts;
 using UnityEngine;
 
-namespace UGF.Module.Pool.Runtime.GameObjects
+namespace UGF.Module.Pool.Runtime.Components
 {
-    public class PoolGameObjectDynamicLoader<TComponent> : PoolGameObjectLoader<TComponent, PoolGameObjectDynamicCollection<TComponent>, PoolAssetDynamicDescription> where TComponent : Component
+    public class PoolComponentDynamicLoader<TComponent> : PoolComponentLoader<TComponent, PoolComponentDynamicCollection<TComponent>, PoolAssetDynamicDescription> where TComponent : Component
     {
-        protected override PoolGameObjectDynamicCollection<TComponent> OnCreateCollection(TComponent asset, PoolAssetDynamicDescription description, IContext context)
+        protected override PoolComponentDynamicCollection<TComponent> OnCreateCollection(TComponent asset, PoolAssetDynamicDescription description, IContext context)
         {
-            return new PoolGameObjectDynamicCollection<TComponent>(asset, context, description.Capacity)
+            return new PoolComponentDynamicCollection<TComponent>(asset, context, description.Capacity)
             {
                 DefaultCount = description.Count,
                 ExpandAuto = description.ExpandEnable,
