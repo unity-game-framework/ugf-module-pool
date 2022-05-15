@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
 using UGF.Application.Runtime;
+using UGF.Pool.Runtime;
+using UGF.Pool.Runtime.Unity;
+using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Tests
 {
@@ -14,6 +17,11 @@ namespace UGF.Module.Pool.Runtime.Tests
             await launcher.CreateAsync();
 
             var module = launcher.Application.GetModule<PoolModule>();
+
+            IPoolCollection collection = await module.LoadAsync("f49252ed0e77b454b9f998dd2061f950");
+
+            Assert.IsInstanceOf<PoolCollectionDynamicObject<Object>>(collection);
+            Assert.AreEqual(4, collection.Count);
 
             launcher.Destroy();
         }
