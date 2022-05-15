@@ -82,6 +82,8 @@ namespace UGF.Module.Pool.Runtime
             if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
             if (Pools.Entries.ContainsKey(id)) throw new ArgumentException($"Pool already loaded by the specified id: '{id}'.");
 
+            Log.Debug("Pool Module loading", new { id });
+
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
 
@@ -97,6 +99,8 @@ namespace UGF.Module.Pool.Runtime
             if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
             if (Pools.Entries.ContainsKey(id)) throw new ArgumentException($"Pool already loaded by the specified id: '{id}'.");
 
+            Log.Debug("Pool Module loading async", new { id });
+
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
 
@@ -111,6 +115,8 @@ namespace UGF.Module.Pool.Runtime
         {
             if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
 
+            Log.Debug("Pool Module unloading", new { id });
+
             IPoolCollection collection = Pools.Get(id);
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
@@ -123,6 +129,8 @@ namespace UGF.Module.Pool.Runtime
         public async Task UnloadAsync(string id)
         {
             if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
+
+            Log.Debug("Pool Module unloading async", new { id });
 
             IPoolCollection collection = Pools.Get(id);
             IPoolDescription description = GetPoolDescription(id);
