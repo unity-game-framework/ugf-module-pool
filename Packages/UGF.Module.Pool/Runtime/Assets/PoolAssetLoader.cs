@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UGF.Application.Runtime;
 using UGF.Module.Assets.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
@@ -60,27 +59,12 @@ namespace UGF.Module.Pool.Runtime.Assets
 
         protected virtual void OnCollectionBuild(TCollection collection, TDescription description, IContext context)
         {
-            for (int i = 0; i < description.Count; i++)
-            {
-                collection.Add(Object.Instantiate(collection.Asset));
-            }
+            PoolAssetUtility.CollectionBuild(collection, description.Count);
         }
 
         protected virtual void OnCollectionDestroy(TCollection collection, TDescription description, IContext context)
         {
-            if (collection.EnabledCount > 0)
-            {
-                collection.DisableAll();
-            }
-
-            while (collection.Count > 0)
-            {
-                TAsset item = collection.Disabled.First();
-
-                collection.Remove(item);
-
-                Object.Destroy(item);
-            }
+            PoolAssetUtility.CollectionDestroy(collection);
         }
     }
 }
