@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300072365210480dac2f2a3e745597b7, type: 3}
+  m_Name: PoolAssetDescriptionDynamic1
+  m_EditorClassIdentifier: 
+  m_loader: f10d8d9a79247ba4cbb50e54be6764c8
+  m_asset: b29baf718a176264fb1d077df8ed9543
+  m_count: 4
+  m_capacity: 4
+  m_expandEnable: 1
+  m_expandCount: 4
+  m_expandThreshold: 0
+  m_trimEnable: 1
+  m_trimCount: 4
+  m_trimThreshold: 8
