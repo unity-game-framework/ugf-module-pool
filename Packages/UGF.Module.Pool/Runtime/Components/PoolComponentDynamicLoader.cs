@@ -4,11 +4,24 @@ using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Components
 {
-    public class PoolComponentDynamicLoader<TComponent> : PoolAssetDynamicLoader<TComponent> where TComponent : Component
+    public class PoolComponentDynamicLoader<TComponent> : PoolComponentLoader<TComponent, PoolAssetDynamicCollection<TComponent>, PoolAssetDynamicDescription> where TComponent : Component
     {
-        protected override void OnCollectionDestroy(PoolAssetDynamicCollection<TComponent> collection, PoolAssetDynamicDescription description, IContext context)
+        public PoolComponentDynamicLoader(PoolComponentLoaderDescription description) : base(description)
         {
-            PoolComponentUtility.CollectionDestroy(collection);
+        }
+
+        protected override PoolAssetDynamicCollection<TComponent> OnCollectionCreate(TComponent asset, PoolAssetDynamicDescription description, IContext context)
+        {
+            return new PoolAssetDynamicCollection<TComponent>(asset, context, description.Capacity)
+            {
+                DefaultCount = description.Count,
+                ExpandAuto = description.ExpandEnable,
+                ExpandCount = description.ExpandCount,
+                ExpandThreshold = description.ExpandThreshold,
+                TrimAuto = description.TrimEnable,
+                TrimCount = description.TrimCount,
+                TrimThreshold = description.TrimThreshold
+            };
         }
     }
 }

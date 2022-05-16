@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e94b50fe5f48f096849d865e126db8, type: 3}
   m_Name: PoolComponentDynamicLoader
   m_EditorClassIdentifier: 
+  m_sceneName: Pool
+  m_sceneCreate: 1
+  m_sceneUnloadEmpty: 1

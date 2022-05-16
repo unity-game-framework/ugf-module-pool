@@ -4,11 +4,15 @@ using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Components
 {
-    public class PoolComponentStaticLoader<TComponent> : PoolAssetStaticLoader<TComponent> where TComponent : Component
+    public class PoolComponentStaticLoader<TComponent> : PoolComponentLoader<TComponent, PoolAssetStaticCollection<TComponent>, PoolAssetDescription> where TComponent : Component
     {
-        protected override void OnCollectionDestroy(PoolAssetStaticCollection<TComponent> collection, PoolAssetDescription description, IContext context)
+        public PoolComponentStaticLoader(PoolComponentLoaderDescription description) : base(description)
         {
-            PoolComponentUtility.CollectionDestroy(collection);
+        }
+
+        protected override PoolAssetStaticCollection<TComponent> OnCollectionCreate(TComponent asset, PoolAssetDescription description, IContext context)
+        {
+            return new PoolAssetStaticCollection<TComponent>(asset, description.Count);
         }
     }
 }

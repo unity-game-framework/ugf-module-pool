@@ -4,11 +4,11 @@ using UnityEngine;
 namespace UGF.Module.Pool.Runtime.Components
 {
     [CreateAssetMenu(menuName = "Unity Game Framework/Pool/Pool Component Dynamic Loader", order = 2000)]
-    public class PoolComponentDynamicLoaderAsset : PoolLoaderAsset
+    public class PoolComponentDynamicLoaderAsset : PoolComponentLoaderAsset
     {
-        protected override IPoolLoader OnBuild()
+        protected override IPoolLoader OnBuild(PoolComponentLoaderDescription description)
         {
-            return new PoolComponentDynamicLoader<PoolComponent>();
+            return new PoolComponentDynamicLoader<PoolComponent>(description);
         }
     }
 }
