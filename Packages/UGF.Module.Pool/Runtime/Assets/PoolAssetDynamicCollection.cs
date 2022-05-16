@@ -8,6 +8,8 @@ namespace UGF.Module.Pool.Runtime.Assets
     {
         public TAsset Asset { get { return Source; } }
 
+        Object IPoolAssetCollection.Asset { get { return Asset; } }
+
         public PoolAssetDynamicCollection(TAsset source, IContext context, int capacity = 4) : base(source, context, capacity)
         {
         }

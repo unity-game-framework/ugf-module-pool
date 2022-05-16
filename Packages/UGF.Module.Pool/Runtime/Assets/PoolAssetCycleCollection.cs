@@ -8,6 +8,8 @@ namespace UGF.Module.Pool.Runtime.Assets
     {
         public TAsset Asset { get; }
 
+        Object IPoolAssetCollection.Asset { get { return Asset; } }
+
         public PoolAssetCycleCollection(TAsset asset, int capacity = 4) : base(capacity)
         {
             Asset = asset ? asset : throw new ArgumentNullException(nameof(asset));

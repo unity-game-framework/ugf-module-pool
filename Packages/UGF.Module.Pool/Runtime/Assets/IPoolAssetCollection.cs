@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Assets
 {
-    public interface IPoolAssetCollection<TAsset> : IPoolCollection<TAsset> where TAsset : Object
+    public interface IPoolAssetCollection : IPoolCollection
     {
-        TAsset Asset { get; }
+        Object Asset { get; }
     }
 }
