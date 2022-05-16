@@ -89,12 +89,12 @@
       "source": "embedded",
       "dependencies": {
         "com.ugf.application": "8.1.0",
-        "com.ugf.pool": "2.0.0-preview.3",
+        "com.ugf.pool": "2.0.0-preview.4",
         "com.ugf.module.assets": "4.0.0"
       }
     },
     "com.ugf.pool": {
-      "version": "2.0.0-preview.3",
+      "version": "2.0.0-preview.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
