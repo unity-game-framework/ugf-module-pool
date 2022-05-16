@@ -39,20 +39,6 @@ namespace UGF.Module.Pool.Runtime.Components
             }
         }
 
-        public static void CollectionDestroy(IPoolAssetCollection collection, string sceneName)
-        {
-            if (string.IsNullOrEmpty(sceneName)) throw new ArgumentException("Value cannot be null or empty.", nameof(sceneName));
-
-            CollectionDestroy(collection);
-
-            Scene scene = SceneManager.GetSceneByName(sceneName);
-
-            if (scene.IsValid() && scene.rootCount == 0 && scene.isLoaded)
-            {
-                SceneManager.UnloadSceneAsync(sceneName);
-            }
-        }
-
         public static void CollectionDestroy(IPoolAssetCollection collection)
         {
             if (collection == null) throw new ArgumentNullException(nameof(collection));

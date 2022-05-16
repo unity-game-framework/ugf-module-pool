@@ -13,5 +13,3 @@ MonoBehaviour:
   m_Name: PoolComponentDynamicLoader
   m_EditorClassIdentifier: 
   m_sceneName: Pool
-  m_sceneCreate: 1
-  m_sceneUnloadEmpty: 1

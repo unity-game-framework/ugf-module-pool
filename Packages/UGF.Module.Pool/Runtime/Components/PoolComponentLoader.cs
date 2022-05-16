@@ -19,26 +19,12 @@ namespace UGF.Module.Pool.Runtime.Components
 
         protected override void OnCollectionBuild(TCollection collection, TDescription description, IContext context)
         {
-            if (Description.SceneCreate)
-            {
-                PoolComponentUtility.CollectionBuild(collection, description.Count, Description.SceneName);
-            }
-            else
-            {
-                base.OnCollectionBuild(collection, description, context);
-            }
+            PoolComponentUtility.CollectionBuild(collection, description.Count, Description.SceneName);
         }
 
         protected override void OnCollectionDestroy(TCollection collection, TDescription description, IContext context)
         {
-            if (Description.SceneUnloadEmpty)
-            {
-                PoolComponentUtility.CollectionDestroy(collection, Description.SceneName);
-            }
-            else
-            {
-                PoolComponentUtility.CollectionDestroy(collection);
-            }
+            PoolComponentUtility.CollectionDestroy(collection);
         }
     }
 }
