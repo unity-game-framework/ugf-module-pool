@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_unloadTrackedAssetsOnUninitialize: 1
   m_loaders:
-  - m_guid: 81b68e66ce804dd46b122d7e4846cf46
+  - m_guid:
+      m_first: 5608334487310470758
+      m_second: 5102374180002533995
     m_asset: {fileID: 11400000, guid: 81b68e66ce804dd46b122d7e4846cf46, type: 2}
   m_groups:
-  - m_guid: 2268d5b6d9394e144829a13cf3fe287b
+  - m_guid:
+      m_first: 5626360673906251190
+      m_second: 8874623386381265224
     m_asset: {fileID: 11400000, guid: 2268d5b6d9394e144829a13cf3fe287b, type: 2}
   m_preload: []
   m_preloadAsync: []

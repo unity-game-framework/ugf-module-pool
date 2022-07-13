@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464f08eebac6450bb0bb1dbdec0422a3, type: 3}
   m_Name: New Pool Asset Description Asset
   m_EditorClassIdentifier: 
-  m_loader: 5d34ac4d8403fe247aa2311deb416abf
-  m_asset: 
+  m_loader:
+    m_first: 12025861420580941226
+    m_second: 3649144264228632587
+  m_asset:
+    m_first: 8468077087298499591
+    m_second: 1291178537932100362
   m_count: 4
   m_capacity: 4
