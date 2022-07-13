@@ -1,5 +1,4 @@
 ﻿using UGF.EditorTools.Editor.IMGUI;
-using UGF.EditorTools.Editor.IMGUI.AssetReferences;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
 using UGF.Module.Pool.Runtime;
 using UnityEditor;
@@ -21,7 +20,7 @@ namespace UGF.Module.Pool.Editor
         {
             m_propertyUnloadOnUninitialize = serializedObject.FindProperty("m_unloadOnUninitialize");
 
-            m_listLoaders = new AssetReferenceListDrawer(serializedObject.FindProperty("m_loaders"))
+            m_listLoaders = new ReorderableListDrawer(serializedObject.FindProperty("m_loaders"))
             {
                 DisplayAsSingleLine = true
             };
@@ -34,7 +33,7 @@ namespace UGF.Module.Pool.Editor
                 }
             };
 
-            m_listPools = new AssetReferenceListDrawer(serializedObject.FindProperty("m_pools"))
+            m_listPools = new ReorderableListDrawer(serializedObject.FindProperty("m_pools"))
             {
                 DisplayAsSingleLine = true
             };
