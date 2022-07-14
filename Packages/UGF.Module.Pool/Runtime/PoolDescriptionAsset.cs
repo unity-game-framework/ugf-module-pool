@@ -1,14 +1,15 @@
 ﻿using UGF.Builder.Runtime;
-using UGF.EditorTools.Runtime.IMGUI.Attributes;
+using UGF.EditorTools.Runtime.Assets;
+using UGF.EditorTools.Runtime.Ids;
 using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime
 {
     public abstract class PoolDescriptionAsset : BuilderAsset<IPoolDescription>
     {
-        [AssetGuid(typeof(PoolLoaderAsset))]
-        [SerializeField] private string m_loader;
+        [AssetId(typeof(PoolLoaderAsset))]
+        [SerializeField] private GlobalId m_loader;
 
-        public string Loader { get { return m_loader; } set { m_loader = value; } }
+        public GlobalId Loader { get { return m_loader; } set { m_loader = value; } }
     }
 }

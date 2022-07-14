@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UGF.Application.Runtime;
 using UGF.Builder.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 using UGF.Logs.Runtime;
 using UGF.Pool.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
@@ -10,10 +11,10 @@ using UGF.RuntimeTools.Runtime.Providers;
 
 namespace UGF.Module.Pool.Runtime
 {
-    public class PoolModule : ApplicationModule<PoolModuleDescription>, IApplicationModuleAsync
+    public class PoolModule : ApplicationModuleAsync<PoolModuleDescription>
     {
-        public IProvider<string, IPoolLoader> Loaders { get; } = new Provider<string, IPoolLoader>();
-        public IProvider<string, IPoolCollection> Pools { get; } = new Provider<string, IPoolCollection>();
+        public IProvider<GlobalId, IPoolLoader> Loaders { get; } = new Provider<GlobalId, IPoolLoader>();
+        public IProvider<GlobalId, IPoolCollection> Pools { get; } = new Provider<GlobalId, IPoolCollection>();
         public IContext Context { get; }
 
         public PoolModule(PoolModuleDescription description, IApplication application) : base(description, application)
@@ -25,12 +26,12 @@ namespace UGF.Module.Pool.Runtime
         {
             base.OnInitialize();
 
-            foreach ((string key, IBuilder<IPoolLoader> value) in Description.Loaders)
+            foreach ((GlobalId key, IBuilder<IPoolLoader> value) in Description.Loaders)
             {
                 Loaders.Add(key, value.Build());
             }
 
-            foreach (string id in Description.Preload)
+            foreach (GlobalId id in Description.Preload)
             {
                 Load(id);
             }
@@ -43,14 +44,16 @@ namespace UGF.Module.Pool.Runtime
             });
         }
 
-        public async Task InitializeAsync()
+        protected override async Task OnInitializeAsync()
         {
+            await base.OnInitializeAsync();
+
             Log.Debug("Pool Module initialize async", new
             {
                 preloadAsync = Description.PreloadAsync.Count
             });
 
-            foreach (string id in Description.PreloadAsync)
+            foreach (GlobalId id in Description.PreloadAsync)
             {
                 await LoadAsync(id);
             }
@@ -68,7 +71,7 @@ namespace UGF.Module.Pool.Runtime
 
             while (Pools.Entries.Count > 0)
             {
-                string id = Pools.Entries.First().Key;
+                GlobalId id = Pools.Entries.First().Key;
 
                 Unload(id);
             }
@@ -77,9 +80,9 @@ namespace UGF.Module.Pool.Runtime
             Loaders.Clear();
         }
 
-        public IPoolCollection Load(string id)
+        public IPoolCollection Load(GlobalId id)
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
+            if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
             if (Pools.Entries.ContainsKey(id)) throw new ArgumentException($"Pool already loaded by the specified id: '{id}'.");
 
             Log.Debug("Pool Module loading", new { id });
@@ -94,11 +97,10 @@ namespace UGF.Module.Pool.Runtime
             return collection;
         }
 
-        public async Task<IPoolCollection> LoadAsync(string id)
+        public async Task<IPoolCollection> LoadAsync(GlobalId id)
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
+            if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
             if (Pools.Entries.ContainsKey(id)) throw new ArgumentException($"Pool already loaded by the specified id: '{id}'.");
-
             Log.Debug("Pool Module loading async", new { id });
 
             IPoolDescription description = GetPoolDescription(id);
@@ -111,9 +113,9 @@ namespace UGF.Module.Pool.Runtime
             return collection;
         }
 
-        public void Unload(string id)
+        public void Unload(GlobalId id)
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
+            if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
 
             Log.Debug("Pool Module unloading", new { id });
 
@@ -126,9 +128,9 @@ namespace UGF.Module.Pool.Runtime
             Pools.Remove(id);
         }
 
-        public async Task UnloadAsync(string id)
+        public async Task UnloadAsync(GlobalId id)
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
+            if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
 
             Log.Debug("Pool Module unloading async", new { id });
 
@@ -141,14 +143,14 @@ namespace UGF.Module.Pool.Runtime
             Pools.Remove(id);
         }
 
-        public IPoolDescription GetPoolDescription(string id)
+        public IPoolDescription GetPoolDescription(GlobalId id)
         {
             return TryGetPoolDescription(id, out IPoolDescription description) ? description : throw new ArgumentException($"Pool description not found by the specified id: '{id}'.");
         }
 
-        public bool TryGetPoolDescription(string id, out IPoolDescription description)
+        public bool TryGetPoolDescription(GlobalId id, out IPoolDescription description)
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
+            if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
 
             return Description.Pools.TryGetValue(id, out description);
         }

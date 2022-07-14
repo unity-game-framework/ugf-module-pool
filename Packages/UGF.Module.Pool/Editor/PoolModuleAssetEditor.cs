@@ -1,5 +1,4 @@
 ﻿using UGF.EditorTools.Editor.IMGUI;
-using UGF.EditorTools.Editor.IMGUI.AssetReferences;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
 using UGF.Module.Pool.Runtime;
 using UnityEditor;
@@ -10,9 +9,9 @@ namespace UGF.Module.Pool.Editor
     internal class PoolModuleAssetEditor : UnityEditor.Editor
     {
         private SerializedProperty m_propertyUnloadOnUninitialize;
-        private AssetReferenceListDrawer m_listLoaders;
+        private ReorderableListDrawer m_listLoaders;
         private ReorderableListSelectionDrawerByPath m_listLoadersSelection;
-        private AssetReferenceListDrawer m_listPools;
+        private ReorderableListDrawer m_listPools;
         private ReorderableListSelectionDrawerByPath m_listPoolSelection;
         private ReorderableListDrawer m_listPreload;
         private ReorderableListDrawer m_listPreloadAsync;
@@ -20,7 +19,11 @@ namespace UGF.Module.Pool.Editor
         private void OnEnable()
         {
             m_propertyUnloadOnUninitialize = serializedObject.FindProperty("m_unloadOnUninitialize");
-            m_listLoaders = new AssetReferenceListDrawer(serializedObject.FindProperty("m_loaders"));
+
+            m_listLoaders = new ReorderableListDrawer(serializedObject.FindProperty("m_loaders"))
+            {
+                DisplayAsSingleLine = true
+            };
 
             m_listLoadersSelection = new ReorderableListSelectionDrawerByPath(m_listLoaders, "m_asset")
             {
@@ -30,7 +33,10 @@ namespace UGF.Module.Pool.Editor
                 }
             };
 
-            m_listPools = new AssetReferenceListDrawer(serializedObject.FindProperty("m_pools"));
+            m_listPools = new ReorderableListDrawer(serializedObject.FindProperty("m_pools"))
+            {
+                DisplayAsSingleLine = true
+            };
 
             m_listPoolSelection = new ReorderableListSelectionDrawerByPath(m_listPools, "m_asset")
             {
@@ -40,8 +46,15 @@ namespace UGF.Module.Pool.Editor
                 }
             };
 
-            m_listPreload = new ReorderableListDrawer(serializedObject.FindProperty("m_preload"));
-            m_listPreloadAsync = new ReorderableListDrawer(serializedObject.FindProperty("m_preloadAsync"));
+            m_listPreload = new ReorderableListDrawer(serializedObject.FindProperty("m_preload"))
+            {
+                DisplayAsSingleLine = true
+            };
+
+            m_listPreloadAsync = new ReorderableListDrawer(serializedObject.FindProperty("m_preloadAsync"))
+            {
+                DisplayAsSingleLine = true
+            };
 
             m_listPools.Enable();
             m_listPoolSelection.Enable();

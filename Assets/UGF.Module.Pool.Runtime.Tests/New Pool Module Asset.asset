@@ -13,17 +13,31 @@ MonoBehaviour:
   m_Name: New Pool Module Asset
   m_EditorClassIdentifier: 
   m_unloadOnUninitialize: 1
-  m_pools:
-  - m_guid: fbdf365fa66fe204583c1732e18bc2e4
-    m_asset: {fileID: 11400000, guid: fbdf365fa66fe204583c1732e18bc2e4, type: 2}
-  - m_guid: 4f99eba39e6c8d04ab13291cc0e810ad
-    m_asset: {fileID: 11400000, guid: 4f99eba39e6c8d04ab13291cc0e810ad, type: 2}
   m_loaders:
-  - m_guid: 0bcd2daa713fa6e40b7880d35f5da432
+  - m_guid:
+      m_first: 12025861420580941226
+      m_second: 3649144264228632587
     m_asset: {fileID: 11400000, guid: 0bcd2daa713fa6e40b7880d35f5da432, type: 2}
-  - m_guid: 33d2202f326d8a24caafd7dc61a5f226
+  - m_guid:
+      m_first: 9954136520997871663
+      m_second: 2806487357540773834
     m_asset: {fileID: 11400000, guid: 33d2202f326d8a24caafd7dc61a5f226, type: 2}
-  - m_guid: 5d34ac4d8403fe247aa2311deb416abf
+  - m_guid:
+      m_first: 18312907134778780749
+      m_second: 13792909286838477434
     m_asset: {fileID: 11400000, guid: 5d34ac4d8403fe247aa2311deb416abf, type: 2}
-  m_preload: []
-  m_preloadAsync: []
+  m_pools:
+  - m_guid:
+      m_first: 16286325152375846495
+      m_second: 16483891385453722712
+    m_asset: {fileID: 11400000, guid: fbdf365fa66fe204583c1732e18bc2e4, type: 2}
+  - m_guid:
+      m_first: 10161420847283825571
+      m_second: 12470723279992722347
+    m_asset: {fileID: 11400000, guid: 4f99eba39e6c8d04ab13291cc0e810ad, type: 2}
+  m_preload:
+  - m_first: 0
+    m_second: 0
+  m_preloadAsync:
+  - m_first: 0
+    m_second: 0

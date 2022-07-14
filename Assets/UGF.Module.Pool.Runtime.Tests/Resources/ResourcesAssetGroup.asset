@@ -12,13 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e8b28303b9482aa9ed0a381fe0a110, type: 3}
   m_Name: ResourcesAssetGroup
   m_EditorClassIdentifier: 
-  m_loader: 81b68e66ce804dd46b122d7e4846cf46
+  m_loader:
+    m_first: 5608334487310470758
+    m_second: 5102374180002533995
   m_assets:
-  - m_id: 1dae321a7aa641540892895bf2227e77
+  - m_id:
+      m_first: 4707522364390126106
+      m_second: 8610357961892139528
     m_address: Assets/GameObject
-  - m_id: bfd2b8bea918fd94ebc5aeff9c1364b3
+  - m_id:
+      m_first: 18272415511911512254
+      m_second: 12926478395485636075
     m_address: Assets/Material
-  - m_id: 7123c40105e720c4b8e5547995edd7a9
+  - m_id:
+      m_first: 2361018596242736129
+      m_second: 12238511738644129208
     m_address: Assets/ScriptableObject
-  - m_id: b29baf718a176264fb1d077df8ed9543
+  - m_id:
+      m_first: 7089943547773431665
+      m_second: 4870060223576350203
     m_address: Assets/GameObject1

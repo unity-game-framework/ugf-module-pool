@@ -1,9 +1,10 @@
 ﻿using UGF.Description.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 
 namespace UGF.Module.Pool.Runtime
 {
     public class PoolDescription : DescriptionBase, IPoolDescription
     {
-        public string LoaderId { get; set; }
+        public GlobalId LoaderId { get; set; }
     }
 }
