@@ -56,6 +56,24 @@ namespace UGF.Module.Pool.Runtime.Components
             return collection;
         }
 
+        protected override void OnUnload(TCollection collection, TDescription description, IContext context)
+        {
+            var assetsModule = context.Get<IApplication>().GetModule<IAssetModule>();
+
+            OnCollectionDestroy(collection, description, context);
+
+            assetsModule.Unload(description.AssetId, collection.Asset.gameObject);
+        }
+
+        protected override async Task OnUnloadAsync(TCollection collection, TDescription description, IContext context)
+        {
+            var assetsModule = context.Get<IApplication>().GetModule<IAssetModule>();
+
+            OnCollectionDestroy(collection, description, context);
+
+            await assetsModule.UnloadAsync(description.AssetId, collection.Asset.gameObject);
+        }
+
         protected override void OnCollectionBuild(TCollection collection, TDescription description, IContext context)
         {
             PoolComponentUtility.CollectionBuild(collection, description.Count, Description.SceneName);
