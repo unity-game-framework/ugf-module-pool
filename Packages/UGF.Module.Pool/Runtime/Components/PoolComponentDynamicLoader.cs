@@ -1,6 +1,7 @@
 ﻿using UGF.Module.Pool.Runtime.Assets;
 using UGF.RuntimeTools.Runtime.Contexts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UGF.Module.Pool.Runtime.Components
 {
@@ -12,7 +13,9 @@ namespace UGF.Module.Pool.Runtime.Components
 
         protected override PoolComponentDynamicCollection<TComponent> OnCollectionCreate(TComponent asset, PoolAssetDynamicDescription description, IContext context)
         {
-            return new PoolComponentDynamicCollection<TComponent>(asset, context, description.Capacity)
+            Scene scene = SceneManager.GetSceneByName(Description.SceneName);
+
+            return new PoolComponentDynamicCollection<TComponent>(asset, scene, context, description.Capacity)
             {
                 DefaultCount = description.Count,
                 ExpandAuto = description.ExpandEnable,
