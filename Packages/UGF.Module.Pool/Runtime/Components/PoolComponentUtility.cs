@@ -10,16 +10,7 @@ namespace UGF.Module.Pool.Runtime.Components
     {
         public static void CollectionBuild(IPoolAssetCollection collection, int count, string sceneName)
         {
-            if (string.IsNullOrEmpty(sceneName)) throw new ArgumentException("Value cannot be null or empty.", nameof(sceneName));
-
-            Scene scene = SceneManager.GetSceneByName(sceneName);
-
-            if (!scene.IsValid())
-            {
-                scene = SceneManager.CreateScene(sceneName);
-            }
-
-            CollectionBuild(collection, count, scene);
+            CollectionBuild(collection, count, GetOrCreateScene(sceneName));
         }
 
         public static void CollectionBuild(IPoolAssetCollection collection, int count, Scene scene)
@@ -54,6 +45,20 @@ namespace UGF.Module.Pool.Runtime.Components
             }
 
             collection.Clear();
+        }
+
+        internal static Scene GetOrCreateScene(string sceneName)
+        {
+            if (string.IsNullOrEmpty(sceneName)) throw new ArgumentException("Value cannot be null or empty.", nameof(sceneName));
+
+            Scene scene = SceneManager.GetSceneByName(sceneName);
+
+            if (!scene.IsValid())
+            {
+                scene = SceneManager.CreateScene(sceneName);
+            }
+
+            return scene;
         }
     }
 }
