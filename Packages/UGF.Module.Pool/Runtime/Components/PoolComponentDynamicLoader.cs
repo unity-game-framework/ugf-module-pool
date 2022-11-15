@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime.Components
 {
-    public class PoolComponentDynamicLoader<TComponent> : PoolComponentLoader<TComponent, PoolAssetDynamicCollection<TComponent>, PoolAssetDynamicDescription> where TComponent : Component
+    public class PoolComponentDynamicLoader<TComponent> : PoolComponentLoader<TComponent, PoolComponentDynamicCollection<TComponent>, PoolAssetDynamicDescription> where TComponent : Component
     {
         public PoolComponentDynamicLoader(PoolComponentLoaderDescription description) : base(description)
         {
         }
 
-        protected override PoolAssetDynamicCollection<TComponent> OnCollectionCreate(TComponent asset, PoolAssetDynamicDescription description, IContext context)
+        protected override PoolComponentDynamicCollection<TComponent> OnCollectionCreate(TComponent asset, PoolAssetDynamicDescription description, IContext context)
         {
-            return new PoolAssetDynamicCollection<TComponent>(asset, context, description.Capacity)
+            return new PoolComponentDynamicCollection<TComponent>(asset, context, description.Capacity)
             {
                 DefaultCount = description.Count,
                 ExpandAuto = description.ExpandEnable,

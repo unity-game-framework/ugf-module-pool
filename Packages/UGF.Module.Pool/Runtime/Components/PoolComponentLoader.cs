@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
+using UGF.Application.Runtime;
+using UGF.Module.Assets.Runtime;
 using UGF.Module.Pool.Runtime.Assets;
 using UGF.RuntimeTools.Runtime.Contexts;
 using UnityEngine;
@@ -15,6 +18,42 @@ namespace UGF.Module.Pool.Runtime.Components
         protected PoolComponentLoader(PoolComponentLoaderDescription description)
         {
             Description = description ?? throw new ArgumentNullException(nameof(description));
+        }
+
+        protected override TCollection OnLoad(TDescription description, IContext context)
+        {
+            var assetsModule = context.Get<IApplication>().GetModule<IAssetModule>();
+
+            var gameObject = assetsModule.Load<GameObject>(description.AssetId);
+
+            if (!gameObject.TryGetComponent(out TComponent component))
+            {
+                throw new ArgumentException($"Pool gameobject component not found of the specified type: '{typeof(TComponent)}'.");
+            }
+
+            TCollection collection = OnCollectionCreate(component, description, context);
+
+            OnCollectionBuild(collection, description, context);
+
+            return collection;
+        }
+
+        protected override async Task<TCollection> OnLoadAsync(TDescription description, IContext context)
+        {
+            var assetsModule = context.Get<IApplication>().GetModule<IAssetModule>();
+
+            var gameObject = await assetsModule.LoadAsync<GameObject>(description.AssetId);
+
+            if (!gameObject.TryGetComponent(out TComponent component))
+            {
+                throw new ArgumentException($"Pool gameobject component not found of the specified type: '{typeof(TComponent)}'.");
+            }
+
+            TCollection collection = OnCollectionCreate(component, description, context);
+
+            OnCollectionBuild(collection, description, context);
+
+            return collection;
         }
 
         protected override void OnCollectionBuild(TCollection collection, TDescription description, IContext context)
