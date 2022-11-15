@@ -13,7 +13,7 @@ namespace UGF.Module.Pool.Runtime.Components
 
         protected override PoolComponentDynamicCollection<TComponent> OnCollectionCreate(TComponent asset, PoolAssetDynamicDescription description, IContext context)
         {
-            Scene scene = SceneManager.GetSceneByName(Description.SceneName);
+            Scene scene = PoolComponentUtility.GetOrCreateScene(Description.SceneName);
 
             return new PoolComponentDynamicCollection<TComponent>(asset, scene, context, description.Capacity)
             {
