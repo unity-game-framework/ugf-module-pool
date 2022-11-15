@@ -1,4 +1,5 @@
-﻿using UGF.EditorTools.Editor.IMGUI;
+﻿using UGF.EditorTools.Editor.Assets;
+using UGF.EditorTools.Editor.IMGUI;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
 using UGF.Module.Pool.Runtime;
 using UnityEditor;
@@ -9,9 +10,9 @@ namespace UGF.Module.Pool.Editor
     internal class PoolModuleAssetEditor : UnityEditor.Editor
     {
         private SerializedProperty m_propertyUnloadOnUninitialize;
-        private ReorderableListDrawer m_listLoaders;
+        private AssetIdReferenceListDrawer m_listLoaders;
         private ReorderableListSelectionDrawerByPath m_listLoadersSelection;
-        private ReorderableListDrawer m_listPools;
+        private AssetIdReferenceListDrawer m_listPools;
         private ReorderableListSelectionDrawerByPath m_listPoolSelection;
         private ReorderableListDrawer m_listPreload;
         private ReorderableListDrawer m_listPreloadAsync;
@@ -20,7 +21,7 @@ namespace UGF.Module.Pool.Editor
         {
             m_propertyUnloadOnUninitialize = serializedObject.FindProperty("m_unloadOnUninitialize");
 
-            m_listLoaders = new ReorderableListDrawer(serializedObject.FindProperty("m_loaders"))
+            m_listLoaders = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_loaders"))
             {
                 DisplayAsSingleLine = true
             };
@@ -33,7 +34,7 @@ namespace UGF.Module.Pool.Editor
                 }
             };
 
-            m_listPools = new ReorderableListDrawer(serializedObject.FindProperty("m_pools"))
+            m_listPools = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_pools"))
             {
                 DisplayAsSingleLine = true
             };
