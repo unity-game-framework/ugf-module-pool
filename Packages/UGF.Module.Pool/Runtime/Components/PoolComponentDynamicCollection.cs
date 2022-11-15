@@ -26,7 +26,7 @@ namespace UGF.Module.Pool.Runtime.Components
         {
             base.OnDisabled(item);
 
-            item.transform.parent = null;
+            item.transform.SetParent(null, false);
 
             SceneManager.MoveGameObjectToScene(item.gameObject, Scene);
         }
