@@ -66,14 +66,18 @@ namespace UGF.Module.Pool.Runtime
             Log.Debug("Pool Module uninitialize", new
             {
                 pools = Pools.Entries.Count,
-                loaders = Loaders.Entries.Count
+                loaders = Loaders.Entries.Count,
+                Description.UnloadOnUninitialize
             });
 
-            while (Pools.Entries.Count > 0)
+            if (Description.UnloadOnUninitialize)
             {
-                GlobalId id = Pools.Entries.First().Key;
+                while (Pools.Entries.Count > 0)
+                {
+                    GlobalId id = Pools.Entries.First().Key;
 
-                Unload(id);
+                    Unload(id);
+                }
             }
 
             Pools.Clear();
