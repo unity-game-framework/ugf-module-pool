@@ -22,6 +22,13 @@ namespace UGF.Module.Pool.Runtime.Components
             Scene = scene;
         }
 
+        protected override void OnAdded(TComponent item)
+        {
+            base.OnAdded(item);
+
+            SceneManager.MoveGameObjectToScene(item.gameObject, Scene);
+        }
+
         protected override void OnDisabled(TComponent item)
         {
             base.OnDisabled(item);
