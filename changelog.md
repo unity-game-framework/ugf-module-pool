@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.5](https://github.com/unity-game-framework/ugf-module-pool/releases/tag/2.0.0-preview.5) - 2022-11-19  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-module-pool/milestone/7?closed=1)  
+    
+
+### Fixed
+
+- Fix PoolComponentDynamicCollection build on specified scene ([#13](https://github.com/unity-game-framework/ugf-module-pool/issues/13))  
+    - Fix `PoolComponentDynamicCollection` class to set scene when new item added to the collection.
+
 ## [2.0.0-preview.4](https://github.com/unity-game-framework/ugf-module-pool/releases/tag/2.0.0-preview.4) - 2022-11-15  
 
 ### Release Notes
