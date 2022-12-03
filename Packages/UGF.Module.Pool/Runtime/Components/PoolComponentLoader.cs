@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UGF.Application.Runtime;
 using UGF.Module.Assets.Runtime;
 using UGF.Module.Pool.Runtime.Assets;
 using UGF.RuntimeTools.Runtime.Contexts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UGF.Module.Pool.Runtime.Components
 {
@@ -14,6 +16,14 @@ namespace UGF.Module.Pool.Runtime.Components
         where TDescription : PoolAssetDescription
     {
         public PoolComponentLoaderDescription Description { get; }
+
+        private readonly Dictionary<IApplication, SceneHandler> m_scenes = new Dictionary<IApplication, SceneHandler>();
+
+        private struct SceneHandler
+        {
+            public Scene Scene { get; set; }
+            public int Count { get; set; }
+        }
 
         protected PoolComponentLoader(PoolComponentLoaderDescription description)
         {
@@ -82,6 +92,32 @@ namespace UGF.Module.Pool.Runtime.Components
         protected override void OnCollectionDestroy(TCollection collection, TDescription description, IContext context)
         {
             PoolComponentUtility.CollectionDestroy(collection);
+        }
+
+        protected virtual void OnSceneCreate(TCollection collection, TDescription description, IContext context)
+        {
+            var application = context.Get<IApplication>();
+        }
+
+        protected virtual void OnSceneUnload(TCollection collection, TDescription description, IContext context)
+        {
+            var application = context.Get<IApplication>();
+
+            if (m_scenes.TryGetValue(application, out SceneHandler handler))
+            {
+                handler.Count--;
+
+                m_scenes[application] = handler;
+
+                if (handler.Count == 0)
+                {
+#pragma warning disable CS0618
+                    SceneManager.UnloadScene(handler.Scene);
+#pragma warning restore CS0618
+
+                    m_scenes.Remove(application);
+                }
+            }
         }
     }
 }
