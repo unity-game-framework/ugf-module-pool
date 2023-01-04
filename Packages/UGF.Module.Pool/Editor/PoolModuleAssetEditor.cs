@@ -28,10 +28,7 @@ namespace UGF.Module.Pool.Editor
 
             m_listLoadersSelection = new ReorderableListSelectionDrawerByPath(m_listLoaders, "m_asset")
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listPools = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_pools"))
@@ -41,10 +38,7 @@ namespace UGF.Module.Pool.Editor
 
             m_listPoolSelection = new ReorderableListSelectionDrawerByPath(m_listPools, "m_asset")
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listPreload = new ReorderableListDrawer(serializedObject.FindProperty("m_preload"))
