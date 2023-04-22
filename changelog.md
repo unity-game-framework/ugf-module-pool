@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0](https://github.com/unity-game-framework/ugf-module-pool/releases/tag/2.1.0) - 2023-04-22  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-module-pool/milestone/9?closed=1)  
+    
+
+### Added
+
+- Add pool collection asset ([#20](https://github.com/unity-game-framework/ugf-module-pool/issues/20))  
+    - Add `PoolDescriptionCollectionAsset` class as abstract collection of the `IPoolDescription` descriptions.
+    - Add `PoolDescriptionCollectionListAsset` class as default implementation of `PoolDescriptionCollectionAsset` class which stores pool descriptions as list of the assets.
+    - Add `PoolModuleAsset.Collections` property as collections of the `PoolDescriptionCollectionAsset` classes used to setup pools from collections.
+
 ## [2.0.0](https://github.com/unity-game-framework/ugf-module-pool/releases/tag/2.0.0) - 2023-01-04  
 
 ### Release Notes

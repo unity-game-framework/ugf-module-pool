@@ -4,7 +4,7 @@ UGF.Module.Pool
 
 ## Information
 
-- **Version**: `2.0.0`
+- **Version**: `2.1.0`
 - **Unity**: `2022.2`
 - **API Compatibility Level**: `.NET Standard 2.1`
 
