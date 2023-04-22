@@ -47,6 +47,8 @@ MonoBehaviour:
       m_first: 18047170331981874336
       m_second: 11022550485966275498
     m_asset: {fileID: 11400000, guid: 86bf84a06dccfa74aa43d45a44f7f798, type: 2}
+  m_collections:
+  - {fileID: 11400000, guid: 5d6d9ea45342950449a98c8f60662ff7, type: 2}
   m_preload: []
   m_preloadAsync:
   - m_first: 15300036787716189887
