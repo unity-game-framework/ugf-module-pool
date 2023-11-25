@@ -4,13 +4,13 @@ UGF.Module.Pool
 
 ## Information
 
-- **Version**: `2.1.0`
-- **Unity**: `2022.2`
+- **Version**: `3.0.0-preview`
+- **Unity**: `2023.2`
 - **API Compatibility Level**: `.NET Standard 2.1`
 
 ### Dependencies
 
-- `com.ugf.module.assets`: `5.0.0`
+- `com.ugf.module.assets`: `6.0.0-preview.1`
 - `com.ugf.pool`: `2.0.0`
 
 
