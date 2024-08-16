@@ -16,6 +16,8 @@ namespace UGF.Module.Pool.Editor
         private ReorderableListSelectionDrawerByPath m_listPoolSelection;
         private ReorderableListDrawer m_listCollections;
         private ReorderableListSelectionDrawerByElement m_listCollectionsSelection;
+        private ReorderableListDrawer m_listTables;
+        private ReorderableListSelectionDrawerByElement m_listTablesSelection;
         private ReorderableListDrawer m_listPreload;
         private ReorderableListDrawer m_listPreloadAsync;
 
@@ -50,6 +52,13 @@ namespace UGF.Module.Pool.Editor
                 Drawer = { DisplayTitlebar = true }
             };
 
+            m_listTables = new ReorderableListDrawer(serializedObject.FindProperty("m_tables"));
+
+            m_listTablesSelection = new ReorderableListSelectionDrawerByElement(m_listTables)
+            {
+                Drawer = { DisplayTitlebar = true }
+            };
+
             m_listPreload = new ReorderableListDrawer(serializedObject.FindProperty("m_preload"))
             {
                 DisplayAsSingleLine = true
@@ -66,6 +75,8 @@ namespace UGF.Module.Pool.Editor
             m_listLoadersSelection.Enable();
             m_listCollections.Enable();
             m_listCollectionsSelection.Enable();
+            m_listTables.Enable();
+            m_listTablesSelection.Enable();
             m_listPreload.Enable();
             m_listPreloadAsync.Enable();
         }
@@ -78,6 +89,8 @@ namespace UGF.Module.Pool.Editor
             m_listPoolSelection.Disable();
             m_listCollections.Disable();
             m_listCollectionsSelection.Disable();
+            m_listTables.Disable();
+            m_listTablesSelection.Disable();
             m_listPreload.Disable();
             m_listPreloadAsync.Disable();
         }
@@ -93,12 +106,14 @@ namespace UGF.Module.Pool.Editor
                 m_listLoaders.DrawGUILayout();
                 m_listPools.DrawGUILayout();
                 m_listCollections.DrawGUILayout();
+                m_listTables.DrawGUILayout();
                 m_listPreload.DrawGUILayout();
                 m_listPreloadAsync.DrawGUILayout();
 
                 m_listLoadersSelection.DrawGUILayout();
                 m_listPoolSelection.DrawGUILayout();
                 m_listCollectionsSelection.DrawGUILayout();
+                m_listTablesSelection.DrawGUILayout();
             }
         }
     }

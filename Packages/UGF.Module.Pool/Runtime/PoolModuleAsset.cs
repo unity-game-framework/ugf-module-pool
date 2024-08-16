@@ -14,6 +14,7 @@ namespace UGF.Module.Pool.Runtime
         [SerializeField] private List<AssetIdReference<PoolLoaderAsset>> m_loaders = new List<AssetIdReference<PoolLoaderAsset>>();
         [SerializeField] private List<AssetIdReference<PoolDescriptionAsset>> m_pools = new List<AssetIdReference<PoolDescriptionAsset>>();
         [SerializeField] private List<PoolDescriptionCollectionAsset> m_collections = new List<PoolDescriptionCollectionAsset>();
+        [SerializeField] private List<PoolDescriptionTableAsset> m_tables = new List<PoolDescriptionTableAsset>();
         [AssetId(typeof(PoolDescriptionAsset))]
         [SerializeField] private List<Hash128> m_preload = new List<Hash128>();
         [AssetId(typeof(PoolDescriptionAsset))]
@@ -22,7 +23,8 @@ namespace UGF.Module.Pool.Runtime
         public bool UnloadOnUninitialize { get { return m_unloadOnUninitialize; } set { m_unloadOnUninitialize = value; } }
         public List<AssetIdReference<PoolLoaderAsset>> Loaders { get { return m_loaders; } }
         public List<AssetIdReference<PoolDescriptionAsset>> Pools { get { return m_pools; } }
-        public List<PoolDescriptionCollectionAsset> Collections { get { return m_collections; } set { m_collections = value; } }
+        public List<PoolDescriptionCollectionAsset> Collections { get { return m_collections; } }
+        public List<PoolDescriptionTableAsset> Tables { get { return m_tables; } }
         public List<Hash128> Preload { get { return m_preload; } }
         public List<Hash128> PreloadAsync { get { return m_preloadAsync; } }
 
@@ -52,6 +54,13 @@ namespace UGF.Module.Pool.Runtime
                 PoolDescriptionCollectionAsset collection = m_collections[i];
 
                 collection.GetDescriptions(pools);
+            }
+
+            for (int i = 0; i < m_tables.Count; i++)
+            {
+                PoolDescriptionTableAsset table = m_tables[i];
+
+                table.GetDescriptions(pools);
             }
 
             for (int i = 0; i < m_preload.Count; i++)
