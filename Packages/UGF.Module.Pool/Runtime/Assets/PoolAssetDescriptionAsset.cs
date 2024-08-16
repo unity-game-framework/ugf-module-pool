@@ -8,7 +8,7 @@ namespace UGF.Module.Pool.Runtime.Assets
     public class PoolAssetDescriptionAsset : PoolDescriptionAsset
     {
         [AssetId(typeof(Object))]
-        [SerializeField] private GlobalId m_asset;
+        [SerializeField] private Hash128 m_asset;
         [SerializeField] private int m_count = 4;
         [SerializeField] private int m_capacity = 4;
 
@@ -18,13 +18,12 @@ namespace UGF.Module.Pool.Runtime.Assets
 
         protected override IPoolDescription OnBuild()
         {
-            return new PoolAssetDescription
-            {
-                LoaderId = Loader,
-                AssetId = m_asset,
-                Count = m_count,
-                Capacity = m_capacity
-            };
+            return new PoolAssetDescription(
+                Loader,
+                m_asset,
+                m_count,
+                m_capacity
+            );
         }
     }
 }

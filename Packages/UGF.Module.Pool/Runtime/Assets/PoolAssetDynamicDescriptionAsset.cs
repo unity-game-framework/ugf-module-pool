@@ -21,19 +21,18 @@ namespace UGF.Module.Pool.Runtime.Assets
 
         protected override IPoolDescription OnBuild()
         {
-            return new PoolAssetDynamicDescription
-            {
-                LoaderId = Loader,
-                AssetId = Asset,
-                Count = Count,
-                Capacity = Capacity,
-                ExpandEnable = m_expandEnable,
-                ExpandCount = m_expandCount,
-                ExpandThreshold = m_expandThreshold,
-                TrimEnable = m_trimEnable,
-                TrimCount = m_trimCount,
-                TrimThreshold = m_trimThreshold
-            };
+            return new PoolAssetDynamicDescription(
+                Loader,
+                Asset,
+                Count,
+                Capacity,
+                m_expandEnable,
+                m_expandCount,
+                m_expandThreshold,
+                m_trimEnable,
+                m_trimCount,
+                m_trimThreshold
+            );
         }
     }
 }
