@@ -37,7 +37,9 @@ MonoBehaviour:
     m_asset: {fileID: 11400000, guid: 4f99eba39e6c8d04ab13291cc0e810ad, type: 2}
   m_collections:
   - {fileID: 11400000, guid: 5d6d9ea45342950449a98c8f60662ff7, type: 2}
-  m_tables: []
+  m_tables:
+  - {fileID: 11400000, guid: f072151e7b90a4e41bbfa7ebfe01a872, type: 2}
+  - {fileID: 11400000, guid: f4988f6a99f54b644bdc94b50c0878d0, type: 2}
   m_preload:
   - serializedVersion: 2
     Hash: 00000000000000000000000000000000

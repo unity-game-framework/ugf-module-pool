@@ -86,3 +86,39 @@ MonoBehaviour:
       m_trimEnable: 0
       m_trimCount: 0
       m_trimThreshold: 0
+    - m_id:
+        serializedVersion: 2
+        Hash: 1e21348237bb4a0f928c57687a84f44a
+      m_name: Entry_5
+      m_loader:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_asset:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_count: 0
+      m_capacity: 0
+      m_expandEnable: 0
+      m_expandCount: 0
+      m_expandThreshold: 0
+      m_trimEnable: 0
+      m_trimCount: 0
+      m_trimThreshold: 0
+    - m_id:
+        serializedVersion: 2
+        Hash: 160605d0a004445abb1ef335a031ad8d
+      m_name: Entry_4
+      m_loader:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_asset:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_count: 0
+      m_capacity: 0
+      m_expandEnable: 0
+      m_expandCount: 0
+      m_expandThreshold: 0
+      m_trimEnable: 0
+      m_trimCount: 0
+      m_trimThreshold: 0
