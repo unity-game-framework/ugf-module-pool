@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f96c03c8de14d1c9b49b7d67fb5e655, type: 3}
+  m_Name: New Pool Asset Dynamic Description Table Asset
+  m_EditorClassIdentifier: 
+  m_table:
+    m_entries:
+    - m_id:
+        serializedVersion: 2
+        Hash: 8c0a6fabf37a4293985fa618f3587f5b
+      m_name: Entry
+      m_loader:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_asset:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_count: 0
+      m_capacity: 0
+      m_expandEnable: 0
+      m_expandCount: 0
+      m_expandThreshold: 0
+      m_trimEnable: 0
+      m_trimCount: 0
+      m_trimThreshold: 0
+    - m_id:
+        serializedVersion: 2
+        Hash: 5e2895de71ed498bb7d89bd358a69592
+      m_name: Entry_3
+      m_loader:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_asset:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_count: 0
+      m_capacity: 0
+      m_expandEnable: 0
+      m_expandCount: 0
+      m_expandThreshold: 0
+      m_trimEnable: 0
+      m_trimCount: 0
+      m_trimThreshold: 0
+    - m_id:
+        serializedVersion: 2
+        Hash: bc244a81d03d45edab0c8e553c68486a
+      m_name: Entry_2
+      m_loader:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_asset:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_count: 0
+      m_capacity: 0
+      m_expandEnable: 0
+      m_expandCount: 0
+      m_expandThreshold: 0
+      m_trimEnable: 0
+      m_trimCount: 0
+      m_trimThreshold: 0
+    - m_id:
+        serializedVersion: 2
+        Hash: 0b1ae5a2baa34f999c7f478fbff44178
+      m_name: Entry_1
+      m_loader:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_asset:
+        serializedVersion: 2
+        Hash: 00000000000000000000000000000000
+      m_count: 0
+      m_capacity: 0
+      m_expandEnable: 0
+      m_expandCount: 0
+      m_expandThreshold: 0
+      m_trimEnable: 0
+      m_trimCount: 0
+      m_trimThreshold: 0

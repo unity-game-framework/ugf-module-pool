@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: ResourcesAssetGroup
   m_EditorClassIdentifier: 
   m_loader:
-    m_first: 5608334487310470758
-    m_second: 5102374180002533995
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
   m_assets:
   - m_id:
-      m_first: 4707522364390126106
-      m_second: 8610357961892139528
+      serializedVersion: 2
+      Hash: 1dae321a7aa641540892895bf2227e77
     m_address: Assets/GameObject
   - m_id:
-      m_first: 18272415511911512254
-      m_second: 12926478395485636075
+      serializedVersion: 2
+      Hash: bfd2b8bea918fd94ebc5aeff9c1364b3
     m_address: Assets/Material
   - m_id:
-      m_first: 2361018596242736129
-      m_second: 12238511738644129208
+      serializedVersion: 2
+      Hash: 7123c40105e720c4b8e5547995edd7a9
     m_address: Assets/ScriptableObject
   - m_id:
-      m_first: 7089943547773431665
-      m_second: 4870060223576350203
+      serializedVersion: 2
+      Hash: b29baf718a176264fb1d077df8ed9543
     m_address: Assets/GameObject1
