@@ -15,31 +15,34 @@ MonoBehaviour:
   m_unloadOnUninitialize: 1
   m_loaders:
   - m_guid:
-      m_first: 12025861420580941226
-      m_second: 3649144264228632587
+      serializedVersion: 2
+      Hash: 00000000000000000000000000000000
     m_asset: {fileID: 11400000, guid: 0bcd2daa713fa6e40b7880d35f5da432, type: 2}
   - m_guid:
-      m_first: 9954136520997871663
-      m_second: 2806487357540773834
+      serializedVersion: 2
+      Hash: 00000000000000000000000000000000
     m_asset: {fileID: 11400000, guid: 33d2202f326d8a24caafd7dc61a5f226, type: 2}
   - m_guid:
-      m_first: 18312907134778780749
-      m_second: 13792909286838477434
+      serializedVersion: 2
+      Hash: 00000000000000000000000000000000
     m_asset: {fileID: 11400000, guid: 5d34ac4d8403fe247aa2311deb416abf, type: 2}
   m_pools:
   - m_guid:
-      m_first: 16286325152375846495
-      m_second: 16483891385453722712
+      serializedVersion: 2
+      Hash: 00000000000000000000000000000000
     m_asset: {fileID: 11400000, guid: fbdf365fa66fe204583c1732e18bc2e4, type: 2}
   - m_guid:
-      m_first: 10161420847283825571
-      m_second: 12470723279992722347
+      serializedVersion: 2
+      Hash: 00000000000000000000000000000000
     m_asset: {fileID: 11400000, guid: 4f99eba39e6c8d04ab13291cc0e810ad, type: 2}
   m_collections:
   - {fileID: 11400000, guid: 5d6d9ea45342950449a98c8f60662ff7, type: 2}
+  m_tables:
+  - {fileID: 11400000, guid: f072151e7b90a4e41bbfa7ebfe01a872, type: 2}
+  - {fileID: 11400000, guid: f4988f6a99f54b644bdc94b50c0878d0, type: 2}
   m_preload:
-  - m_first: 0
-    m_second: 0
+  - serializedVersion: 2
+    Hash: 00000000000000000000000000000000
   m_preloadAsync:
-  - m_first: 0
-    m_second: 0
+  - serializedVersion: 2
+    Hash: 00000000000000000000000000000000

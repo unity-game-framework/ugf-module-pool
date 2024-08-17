@@ -10,10 +10,7 @@ namespace UGF.Module.Pool.Runtime.Components
 
         protected override IPoolLoader OnBuild()
         {
-            var description = new PoolComponentLoaderDescription
-            {
-                SceneName = m_sceneName
-            };
+            var description = new PoolComponentLoaderDescription(m_sceneName);
 
             return OnBuild(description);
         }

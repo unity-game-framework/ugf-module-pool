@@ -17,9 +17,13 @@ namespace UGF.Module.Pool.Runtime
         public IProvider<GlobalId, IPoolCollection> Pools { get; } = new Provider<GlobalId, IPoolCollection>();
         public IContext Context { get; }
 
+        private readonly ILog m_logger;
+
         public PoolModule(PoolModuleDescription description, IApplication application) : base(description, application)
         {
             Context = new Context { application };
+
+            m_logger = Log.CreateWithLabel<PoolModule>();
         }
 
         protected override void OnInitialize()
@@ -36,7 +40,7 @@ namespace UGF.Module.Pool.Runtime
                 Load(id);
             }
 
-            Log.Debug("Pool Module initialized", new
+            m_logger.Debug("Initialized", new
             {
                 pools = Description.Pools.Count,
                 loaders = Description.Loaders.Count,
@@ -48,7 +52,7 @@ namespace UGF.Module.Pool.Runtime
         {
             await base.OnInitializeAsync();
 
-            Log.Debug("Pool Module initialize async", new
+            m_logger.Debug("Initialize async", new
             {
                 preloadAsync = Description.PreloadAsync.Count
             });
@@ -63,7 +67,7 @@ namespace UGF.Module.Pool.Runtime
         {
             base.OnUninitialize();
 
-            Log.Debug("Pool Module uninitialize", new
+            m_logger.Debug("Uninitialize", new
             {
                 pools = Pools.Entries.Count,
                 loaders = Loaders.Entries.Count,
@@ -89,7 +93,7 @@ namespace UGF.Module.Pool.Runtime
             if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
             if (Pools.Entries.ContainsKey(id)) throw new ArgumentException($"Pool already loaded by the specified id: '{id}'.");
 
-            Log.Debug("Pool Module loading", new { id });
+            m_logger.Debug("Loading", new { id });
 
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
@@ -105,7 +109,8 @@ namespace UGF.Module.Pool.Runtime
         {
             if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
             if (Pools.Entries.ContainsKey(id)) throw new ArgumentException($"Pool already loaded by the specified id: '{id}'.");
-            Log.Debug("Pool Module loading async", new { id });
+
+            m_logger.Debug("Loading async", new { id });
 
             IPoolDescription description = GetPoolDescription(id);
             IPoolLoader loader = Loaders.Get(description.LoaderId);
@@ -121,7 +126,7 @@ namespace UGF.Module.Pool.Runtime
         {
             if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
 
-            Log.Debug("Pool Module unloading", new { id });
+            m_logger.Debug("Unloading", new { id });
 
             IPoolCollection collection = Pools.Get(id);
             IPoolDescription description = GetPoolDescription(id);
@@ -136,7 +141,7 @@ namespace UGF.Module.Pool.Runtime
         {
             if (!id.IsValid()) throw new ArgumentException("Value should be valid.", nameof(id));
 
-            Log.Debug("Pool Module unloading async", new { id });
+            m_logger.Debug("Unloading async", new { id });
 
             IPoolCollection collection = Pools.Get(id);
             IPoolDescription description = GetPoolDescription(id);
