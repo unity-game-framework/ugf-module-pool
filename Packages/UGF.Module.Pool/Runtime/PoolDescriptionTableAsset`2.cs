@@ -6,7 +6,7 @@ using UnityEngine;
 namespace UGF.Module.Pool.Runtime
 {
     public abstract class PoolDescriptionTableAsset<TTableEntry, TDescription> : PoolDescriptionTableAsset
-        where TTableEntry : PoolDescriptionTableEntry<TDescription>
+        where TTableEntry : IPoolDescriptionTableEntry<TDescription>
         where TDescription : class, IPoolDescription
     {
         [SerializeField] private Table<TTableEntry> m_table = new Table<TTableEntry>();

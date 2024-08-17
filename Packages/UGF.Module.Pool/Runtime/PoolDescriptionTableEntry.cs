@@ -1,10 +1,9 @@
 ﻿using UGF.EditorTools.Runtime.Ids;
-using UGF.Tables.Runtime;
 using UnityEngine;
 
 namespace UGF.Module.Pool.Runtime
 {
-    public abstract class PoolDescriptionTableEntry<TDescription> : ITableEntry where TDescription : IPoolDescription
+    public abstract class PoolDescriptionTableEntry<TDescription> : IPoolDescriptionTableEntry<TDescription> where TDescription : IPoolDescription
     {
         [SerializeField] private Hash128 m_id;
         [SerializeField] private string m_name;
